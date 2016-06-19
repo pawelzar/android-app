@@ -55,13 +55,16 @@ public class RecipeAdapter extends BaseAdapter {
         TextView recipeLabel = (TextView) recipeView.findViewById(R.id.recipe_label);
         recipeLabel.setText(recipe.getDishName());
 
-        TextView recipeRating = (TextView) recipeView.findViewById(R.id.recipe_rating);
-        String recipeRatingText = recipe.getRating() + "/10";
-        recipeRating.setText(recipeRatingText);
+        //TextView recipeRating = (TextView) recipeView.findViewById(R.id.recipe_rating);
+        //String recipeRatingText = recipe.getRating() + "/10";
+        //recipeRating.setText(recipeRatingText);
     }
 
     public void deleteAll() {
         recipesProvider.deleteAll();
     }
 
+    public void deleteItem(String task) {
+        recipesProvider.deleteItem(task);
+    }
 }

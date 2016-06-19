@@ -7,18 +7,16 @@
         android:id="@+id/recipe_label"
         android:textColor="@android:color/black"
         android:layout_width="match_parent"
-        android:layout_toRightOf="@+id/recipe_rating"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:textSize="15sp"/>
 
-    <TextView
-        android:id="@+id/recipe_rating"
-        android:textColor="@android:color/black"
+    <Button
+        android:id="@+id/task_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="deleteTask"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true"
+        android:text="Del"/>
 
 </RelativeLayout>

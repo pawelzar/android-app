@@ -97,4 +97,14 @@ public class RecipeDatabase  {
             db.close();
         }
     }
+
+    public void deleteItem(String task) {
+        SQLiteDatabase db = recipeDbHelper.getWritableDatabase();
+
+        try {
+            db.delete(TABLE_NAME, COLUMN_NAME + "=" + task, null);
+        } finally {
+            db.close();
+        }
+    }
 }
