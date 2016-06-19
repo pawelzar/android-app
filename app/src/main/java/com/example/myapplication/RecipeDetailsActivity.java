@@ -53,7 +53,7 @@ public class RecipeDetailsActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.save_to_disc: {
+            case R.id.edit_item: {
                 return true;
             }
             default: {

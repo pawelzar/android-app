@@ -1,50 +1,40 @@
 package com.example.myapplication;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
 public class RecipeListActivity extends ActionBarActivity {
 
-    private GridView grid;
+    private ListView listView;
     private RecipeAdapter adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recipe_list);
-
-        initializeGrid();
+        initializeView();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
         adapter.notifyDataSetChanged();
     }
 
-    private void initializeGrid() {
-
-        grid = (GridView) findViewById(R.id.recipe_grid);
-
+    private void initializeView() {
+        listView = (ListView) findViewById(R.id.recipe_list);
         adapter = new RecipeAdapter(this);
-
-        grid.setNumColumns(1);
-
-        grid.setAdapter(adapter);
-
-        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
