@@ -55,7 +55,6 @@ public class RecipeDetailsActivity extends ActionBarActivity {
 
         switch (item.getItemId()) {
             case R.id.save_to_disc: {
-                saveRecipeToDisk(recipe);
                 return true;
             }
             default: {
@@ -73,10 +72,5 @@ public class RecipeDetailsActivity extends ActionBarActivity {
         title.setText(recipe.getDishName());
         ingredients.setText(recipe.getIngredients());
         recipeText.setText(recipe.getRecipeText());
-    }
-
-    private void saveRecipeToDisk(Recipe recipe) {
-        SaveRecipeOnDiskDelegate delegate = new SaveRecipeOnDiskDelegate();
-        delegate.saveRecipe(this, recipe);
     }
 }

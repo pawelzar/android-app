@@ -10,11 +10,7 @@ import android.widget.TextView;
 
 import com.example.myapplication.database.RecipeDatabase;
 
-/**
- * Exercise 2.
- *
- * Use RecipeDatabase instead of RecipesProvider.
- */
+
 public class RecipeAdapter extends BaseAdapter {
 
     private RecipesProvider recipesProvider;
@@ -22,7 +18,6 @@ public class RecipeAdapter extends BaseAdapter {
 
     public RecipeAdapter(Context context) {
         this.context = context;
-//        this.recipesProvider = new SimpleRecipesProvider(context);
         this.recipesProvider = new RecipeDatabase(context);
     }
 
@@ -51,12 +46,12 @@ public class RecipeAdapter extends BaseAdapter {
             recipeView = convertView;
         }
 
-        bindRecipeToView(getItem(position), recipeView, position);
+        bindRecipeToView(getItem(position), recipeView);
 
         return recipeView;
     }
 
-    private void bindRecipeToView(Recipe recipe, View recipeView, int position) {
+    private void bindRecipeToView(Recipe recipe, View recipeView) {
 
         TextView recipeLabel = (TextView) recipeView.findViewById(R.id.recipe_label);
         recipeLabel.setText(recipe.getDishName());

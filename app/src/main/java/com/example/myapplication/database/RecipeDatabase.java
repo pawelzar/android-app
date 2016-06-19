@@ -15,11 +15,6 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.myapplication.Recipe;
 import com.example.myapplication.RecipesProvider;
 
-/**
- * Exercise 2.
- *
- * Implement this class' methods. Extend SQLiteOpenHelper to access database.
- */
 public class RecipeDatabase implements RecipesProvider {
 
     private RecipeDbHelper recipeDbHelper;

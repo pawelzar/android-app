@@ -5,6 +5,7 @@ import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -13,16 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Piotr Makowski (<a href=\"mailto:Piotr.Makowski@allegrogroup.pl\">Piotr.Makowski@allegrogroup.pl</a>)
- */
-public class RecipeListActivity extends ActionBarActivity {
 
-    private ColumnNumberPreferences columnNumberPreferences;
+public class RecipeListActivity extends ActionBarActivity {
 
     private GridView grid;
 
@@ -30,8 +28,6 @@ public class RecipeListActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recipe_list);
-
-        columnNumberPreferences = new ColumnNumberPreferences(this);
 
         initializeGrid();
     }
@@ -49,7 +45,7 @@ public class RecipeListActivity extends ActionBarActivity {
 
         adapter = new RecipeAdapter(this);
 
-        grid.setNumColumns(columnNumberPreferences.getSelectedNumberOfColumns());
+        grid.setNumColumns(1);
 
         grid.setAdapter(adapter);
 
@@ -84,10 +80,6 @@ public class RecipeListActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.col_number: {
-                showColNumberChooserDialog();
-                return true;
-            }
             case R.id.add_recipe: {
                 startAddRecipeActivity();
                 return true;
@@ -102,35 +94,6 @@ public class RecipeListActivity extends ActionBarActivity {
     private void startAddRecipeActivity() {
         Intent i = new Intent(this, AddRecipeActivity.class);
         startActivity(i);
-    }
-
-    private void showColNumberChooserDialog() {
-        AlertDialog.Builder builder = new Builder(this);
-
-        List<CharSequence> options = new ArrayList<>();
-
-        options.add("1");
-        options.add("2");
-        options.add("3");
-        options.add("4");
-        options.add("5");
-
-        builder.setItems(options.toArray(new CharSequence[5]), new OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                setNumberOfGridColumns(which + 1);
-            }
-        });
-
-        builder.setTitle("Select number of columns");
-
-        builder.create().show();
-    }
-
-    private void setNumberOfGridColumns(int numberOfColumns) {
-        grid.setNumColumns(numberOfColumns);
-        columnNumberPreferences.saveSelectedNumberOfColumns(numberOfColumns);
     }
 
     private RecipeAdapter adapter;

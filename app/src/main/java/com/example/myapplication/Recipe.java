@@ -2,13 +2,7 @@ package com.example.myapplication;
 
 import java.io.Serializable;
 
-/**
- * @author Piotr Makowski (<a href=\"mailto:Piotr.Makowski@allegrogroup.pl\">Piotr.Makowski@allegrogroup.pl</a>)
- *
- * Recipe model.
- *
- * Do not modify.
- */
+
 public class Recipe implements Serializable {
 
     private String dishName;
