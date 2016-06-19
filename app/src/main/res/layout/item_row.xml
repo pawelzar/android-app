@@ -4,11 +4,13 @@
     android:layout_height="60dp">
 
     <TextView
-        android:id="@+id/recipe_label"
+        android:id="@+id/item_label"
         android:textColor="@android:color/black"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="15sp"/>
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:textSize="20sp"/>
 
     <Button
         android:id="@+id/task_delete"
@@ -17,6 +19,8 @@
         android:onClick="deleteTask"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:text="Del"/>
+        android:layout_centerInParent="true"
+        android:text="Del"
+        android:focusable="false"/>
 
 </RelativeLayout>

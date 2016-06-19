@@ -10,17 +10,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
-public class RecipeListActivity extends ActionBarActivity {
+public class ItemListActivity extends ActionBarActivity {
 
     private ListView listView;
-    private RecipeAdapter adapter;
+    private ItemAdapter adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recipe_list);
+        setContentView(R.layout.item_list);
         initializeView();
     }
 
@@ -31,24 +32,27 @@ public class RecipeListActivity extends ActionBarActivity {
     }
 
     private void initializeView() {
-        listView = (ListView) findViewById(R.id.recipe_list);
-        adapter = new RecipeAdapter(this);
+        listView = (ListView) findViewById(R.id.item_list);
+        adapter = new ItemAdapter(this);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Recipe recipe = adapter.getItem(position);
-                showRecipe(recipe);
+                Item item = adapter.getItem(position);
+                showItem(item);
             }
         });
     }
 
-    private void showRecipe(Recipe recipe) {
-        Intent i = new Intent(this, RecipeDetailsActivity.class);
+    private void showItem(Item item) {
+        Intent i = new Intent(this, ItemDetailsActivity.class);
+        i.putExtra(ItemDetailsActivity.ITEM_EXTRA_KEY, item);
+        startActivity(i);
+    }
 
-        i.putExtra(RecipeDetailsActivity.RECIPE_EXTRA_KEY, recipe);
-
+    private void startAddItemActivity() {
+        Intent i = new Intent(this, AddItemActivity.class);
         startActivity(i);
     }
 
@@ -65,12 +69,12 @@ public class RecipeListActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.add_recipe: {
-                startAddRecipeActivity();
+            case R.id.add_item: {
+                startAddItemActivity();
                 return true;
             }
             case R.id.delete_all: {
-                deleteAllRecipes();
+                deleteAllItems();
                 return true;
             }
             default: {
@@ -80,22 +84,25 @@ public class RecipeListActivity extends ActionBarActivity {
 
     }
 
-    private void startAddRecipeActivity() {
-        Intent i = new Intent(this, AddRecipeActivity.class);
-        startActivity(i);
-    }
-
-    private void deleteAllRecipes() {
-        adapter.deleteAll();
-        adapter.notifyDataSetChanged();
+    private void deleteAllItems() {
+        if (adapter.getCount() == 0) {
+            Toast.makeText(this, "No elements", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            adapter.deleteAll();
+            adapter.notifyDataSetChanged();
+            Toast.makeText(this, "Deleted all elements", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void deleteTask(View view) {
         View parent = (View) view.getParent();
-        TextView taskTextView = (TextView) parent.findViewById(R.id.recipe_label);
+        TextView taskTextView = (TextView) parent.findViewById(R.id.item_label);
         String task = String.valueOf(taskTextView.getText());
 
         adapter.deleteItem(task);
         adapter.notifyDataSetChanged();
+
+        Toast.makeText(this, "Deleted " + task, Toast.LENGTH_SHORT).show();
     }
 }

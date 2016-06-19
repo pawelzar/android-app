@@ -5,8 +5,8 @@
     <item android:id="@+id/delete_all"
         android:title="Delete all"/>
 
-    <item android:id="@+id/add_recipe"
-        android:title="Add recipe"
+    <item android:id="@+id/add_item"
+        android:title="Add item"
         android:icon="@android:drawable/ic_menu_add"
         app:showAsAction="always"/>
 

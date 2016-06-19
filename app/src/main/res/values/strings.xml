@@ -1,18 +1,10 @@
 <resources>
-    <string name="app_name">Trainer</string>
+    <string name="app_name">No Idea</string>
     <string name="action_settings">Settings</string>
-
-    <string name="ingredients_label">Ingredients</string>
-    <string name="rating_label">Rating</string>
-    <string name="recipe_label">Recipe</string>
-    <string name="recipe_name_label">Recipe name</string>
-    <string name="back_to_the_top">Back to the top</string>
-
-    <string name="recipe_title">Crepe bundles with zuchini and camembert</string>
-    <string name="recipe">1. Mix all ingredients for crape. \n2. Fry in non-sticking frying pan. \n3. Cool down ready crepes and set aside. \n4. To assemble bundles, divide filling between crepes, start with grilled zucchini, add tomato, top with slice of camembert cheese and tablespoon of yoghurt, gather edges of crepe together and tie with spring onion. \n5. Once bundles are ready place them in frying pan again to heat them and melt camembert inside. \n6. Serve as appetizer or light lunch.</string>
-    <string name="ingredients">Crepe batter: \n- 100 grams of wheat flour \n- 250 ml of milk \n- 1 egg \n- 1 tablespoon of oil \n\nFilling: \n- 1 zucchini, sliced and grilled \n- 1 tomato, skin removed, cubed \n- 1/2 cup of greek yoghurt \n- 100 grams of camembert cheese, sliced \n- spring onion, blanched in boiling water</string>
-
-    <string name="rating_semicolon">"Rating: "</string>
-    <string name="out_of_ten">/10</string>
-    <string name="save_recipe_label">Save recipe</string>
+    <string name="item_label">Item</string>
+    <string name="description_label">Description</string>
+    <string name="save_item_label">Save item</string>
+    <string name="add_item">Add item</string>
+    <string name="edit_item">Edit item</string>
+    <string name="item_details">Item details</string>
 </resources>
