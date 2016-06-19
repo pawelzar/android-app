@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/col_number"
-        android:title="Number of columns"/>
+    <item android:id="@+id/delete_all"
+        android:title="Delete all"/>
 
     <item android:id="@+id/add_recipe"
         android:title="Add recipe"

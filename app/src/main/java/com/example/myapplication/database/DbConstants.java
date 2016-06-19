@@ -6,7 +6,7 @@ public class DbConstants {
     public static final String TABLE_NAME = "recipes";
 
     public static final String COLUMN_RATING = "rating";
-    public static final String COLUMN_INGREDIENTS = "ïngredients";
+    public static final String COLUMN_INGREDIENTS = "ingredients";
     public static final String COLUMN_RECIPE = "recipe";
     public static final String COLUMN_NAME = "name";
 

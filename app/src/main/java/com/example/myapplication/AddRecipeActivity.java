@@ -45,7 +45,7 @@ public class AddRecipeActivity extends ActionBarActivity {
 
     private void saveRecipe(Recipe recipe) {
         if(recipe.getDishName().equals("")) {
-            Toast.makeText(this, "Must specify name.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Must specify name", Toast.LENGTH_SHORT).show();
         }
         else {
             RecipeDatabase recipeDb = new RecipeDatabase(this);

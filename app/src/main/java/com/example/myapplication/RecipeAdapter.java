@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myapplication.database.RecipeDatabase;
@@ -59,6 +58,10 @@ public class RecipeAdapter extends BaseAdapter {
         TextView recipeRating = (TextView) recipeView.findViewById(R.id.recipe_rating);
         String recipeRatingText = recipe.getRating() + "/10";
         recipeRating.setText(recipeRatingText);
+    }
+
+    public void deleteAll() {
+        recipesProvider.deleteAll();
     }
 
 }

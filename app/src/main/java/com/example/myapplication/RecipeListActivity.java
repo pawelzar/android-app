@@ -1,11 +1,6 @@
 package com.example.myapplication;
 
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -14,15 +9,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class RecipeListActivity extends ActionBarActivity {
 
     private GridView grid;
+    private RecipeAdapter adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,6 +76,10 @@ public class RecipeListActivity extends ActionBarActivity {
                 startAddRecipeActivity();
                 return true;
             }
+            case R.id.delete_all: {
+                deleteAllRecipes();
+                return true;
+            }
             default: {
                 return super.onOptionsItemSelected(item);
             }
@@ -96,5 +92,8 @@ public class RecipeListActivity extends ActionBarActivity {
         startActivity(i);
     }
 
-    private RecipeAdapter adapter;
+    private void deleteAllRecipes() {
+        adapter.deleteAll();
+        initializeGrid();
+    }
 }
