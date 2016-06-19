@@ -13,7 +13,7 @@ import com.example.myapplication.database.RecipeDatabase;
 
 public class RecipeAdapter extends BaseAdapter {
 
-    private RecipesProvider recipesProvider;
+    private RecipeDatabase recipesProvider;
     private Context context;
 
     public RecipeAdapter(Context context) {

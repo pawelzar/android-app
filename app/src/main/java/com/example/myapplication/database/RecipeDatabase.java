@@ -13,9 +13,8 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.myapplication.Recipe;
-import com.example.myapplication.RecipesProvider;
 
-public class RecipeDatabase implements RecipesProvider {
+public class RecipeDatabase  {
 
     private RecipeDbHelper recipeDbHelper;
 
