@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.myapplication.structure.Item;
+import com.example.myapplication.adapter.ItemAdapter;
+import com.example.myapplication.R;
 
 
 public class ItemListActivity extends ActionBarActivity {

@@ -8,7 +8,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.myapplication.Item;
+import com.example.myapplication.structure.Item;
 
 
 public class ItemDatabase {

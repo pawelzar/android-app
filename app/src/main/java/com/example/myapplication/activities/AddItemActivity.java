@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.myapplication.structure.Item;
+import com.example.myapplication.R;
 import com.example.myapplication.database.ItemDatabase;
 
 
