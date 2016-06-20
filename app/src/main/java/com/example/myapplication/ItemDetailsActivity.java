@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+
 public class ItemDetailsActivity extends ActionBarActivity {
 
     public static final String ITEM_EXTRA_KEY = "item";
@@ -36,7 +37,6 @@ public class ItemDetailsActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case R.id.edit_item: {
                 startEditItemActivity();
@@ -46,7 +46,6 @@ public class ItemDetailsActivity extends ActionBarActivity {
                 return super.onOptionsItemSelected(item);
             }
         }
-
     }
 
     private void showItem(Item item) {

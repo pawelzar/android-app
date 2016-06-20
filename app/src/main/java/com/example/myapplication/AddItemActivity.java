@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.myapplication.database.ItemDatabase;
 
+
 public class AddItemActivity extends ActionBarActivity {
 
     @Override
@@ -45,7 +46,7 @@ public class AddItemActivity extends ActionBarActivity {
             ItemDatabase itemDb = new ItemDatabase(this);
             itemDb.addItem(item);
 
-            Toast.makeText(this, "Item " + item.getName() + " saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Saved " + item.getName(), Toast.LENGTH_SHORT).show();
 
             finish();
         }

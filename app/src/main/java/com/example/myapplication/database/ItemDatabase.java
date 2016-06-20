@@ -1,8 +1,6 @@
 package com.example.myapplication.database;
 
-import static com.example.myapplication.database.DbConstants.COLUMN_DESCRIPTION;
-import static com.example.myapplication.database.DbConstants.COLUMN_NAME;
-import static com.example.myapplication.database.DbConstants.TABLE_NAME;
+import static com.example.myapplication.database.DbConstants.*;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -11,6 +9,7 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.myapplication.Item;
+
 
 public class ItemDatabase {
 
@@ -38,7 +37,6 @@ public class ItemDatabase {
 
         try {
             String[] projection = { COLUMN_NAME, COLUMN_DESCRIPTION };
-
             String sortOrder = COLUMN_NAME + " DESC";
 
             Cursor cursor = db.query(TABLE_NAME,  // The table to query
@@ -59,10 +57,8 @@ public class ItemDatabase {
     private Item getItemFromCursor(int position, Cursor cursor) {
         try {
             cursor.moveToPosition(position);
-
             String name = cursor.getString(0);
             String description = cursor.getString(1);
-
             cursor.close();
 
             return new Item(name, description);

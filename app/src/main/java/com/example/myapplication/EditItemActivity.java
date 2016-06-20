@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.myapplication.database.ItemDatabase;
 
+
 public class EditItemActivity extends ActionBarActivity {
 
     public static final String ITEM_EXTRA_KEY = "item";
@@ -29,20 +30,18 @@ public class EditItemActivity extends ActionBarActivity {
     private void setupViews() {
         final EditText itemNameEditText = (EditText) findViewById(R.id.item_name_edit_text);
         final EditText descriptionEditText = (EditText) findViewById(R.id.description_edit_text);
-        final Button editButton = (Button) findViewById(R.id.save_item_button);
+        final Button saveButton = (Button) findViewById(R.id.save_item_button);
 
-        itemNameEditText.setText(this.item.getName());
-        descriptionEditText.setText(this.item.getDescription());
-        editButton.setText("Edit item");
+        itemNameEditText.setText(item.getName());
+        descriptionEditText.setText(item.getDescription());
+        saveButton.setText(R.string.edit_item);
 
-        Button saveButton = (Button) findViewById(R.id.save_item_button);
         saveButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 String name = itemNameEditText.getText().toString();
                 String description = descriptionEditText.getText().toString();
-
                 update(new Item(name, description));
             }
         });
@@ -56,11 +55,12 @@ public class EditItemActivity extends ActionBarActivity {
             ItemDatabase itemDb = new ItemDatabase(this);
             itemDb.updateItem(this.item.getName(), item);
 
-            Toast.makeText(this, "Item " + item.getName() + " edited", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Edited " + this.item.getName(), Toast.LENGTH_SHORT).show();
 
             Intent i = new Intent(this, ItemDetailsActivity.class);
             i.putExtra(ItemDetailsActivity.ITEM_EXTRA_KEY, item);
             setResult(RESULT_OK, i);
+
             finish();
         }
     }

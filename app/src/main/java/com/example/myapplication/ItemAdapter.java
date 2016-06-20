@@ -12,22 +12,22 @@ import com.example.myapplication.database.ItemDatabase;
 
 public class ItemAdapter extends BaseAdapter {
 
-    private ItemDatabase itemsProvider;
+    private ItemDatabase provider;
     private Context context;
 
     public ItemAdapter(Context context) {
         this.context = context;
-        this.itemsProvider = new ItemDatabase(context);
+        this.provider = new ItemDatabase(context);
     }
 
     @Override
     public int getCount() {
-        return itemsProvider.getItemsNumber();
+        return provider.getItemsNumber();
     }
 
     @Override
     public Item getItem(int position) {
-        return itemsProvider.getItem(position);
+        return provider.getItem(position);
     }
 
     @Override
@@ -56,10 +56,10 @@ public class ItemAdapter extends BaseAdapter {
     }
 
     public void deleteAll() {
-        itemsProvider.deleteAll();
+        provider.deleteAll();
     }
 
-    public void deleteItem(String task) {
-        itemsProvider.deleteItem(task);
+    public void deleteItem(String name) {
+        provider.deleteItem(name);
     }
 }
